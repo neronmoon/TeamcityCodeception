@@ -47,6 +47,7 @@ class TeamCity extends Extension
 			echo "\r" . str_repeat(' ', strlen($message)) . "\r";
 			return false;
 		}
+		echo "Teamcity detected!\n";
 		return true;
 	}
 
