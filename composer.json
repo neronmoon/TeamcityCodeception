@@ -1,7 +1,12 @@
 {
   "name": "neronmoon/teamcity-codeception",
   "description": "Integrating codeception builds with codeception",
-  "keywords": ["dev", "teamcity", "codeception", "testing"],
+  "keywords": [
+    "dev",
+    "teamcity",
+    "codeception",
+    "testing"
+  ],
   "homepage": "https://github.com/neronmoon/teamcitycodeception",
   "type": "package",
   "license": "MIT",
@@ -14,9 +19,12 @@
   "require": {
     "php": ">=5.4"
   },
+  "require-dev": {
+    "codeception/codeception": "2.*"
+  },
   "autoload": {
-    "psr-4": {
-      "Codeception\\Extension\\": "src/"
+    "psr-0": {
+      "Codeception": "src"
     }
   }
 }
