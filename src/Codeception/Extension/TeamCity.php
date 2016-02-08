@@ -40,14 +40,12 @@ class TeamCity extends Extension
 
 	protected function isCI()
 	{
-		// this is the only way to detect teamcity from php
-		$message = "\n##teamcity[setParameter name='env.IS_THAT_U_TEAMCITY' value='yup!']";
-		echo $message;
-		if (getenv('IS_THAT_U_TEAMCITY') !== 'yup!') { // removing prev line in term
-			echo "\r" . str_repeat(' ', strlen($message)) . "\r";
-			return false;
+		$vars = ['TEAMCITY_VERSION', 'CI', 'CONTINUOUS_INTEGRATION', 'BUILD_ID', 'BUILD_NUMBER'];
+		foreach ($vars as $var) {
+			if (getenv($var)) {
+				return true;
+			}
 		}
-		echo "Teamcity detected!\n";
 		return true;
 	}
 
@@ -107,7 +105,7 @@ class TeamCity extends Extension
 		$params += [
 			'name' => $this->getTestName($e),
 			'timestamp' => $this->getTimestamp(),
-			'flowId' => getenv('TEAMCITY_PROCESS_FLOW_ID')
+			'flowId' => getenv('TEAMCITY_PROCESS_FLOW_ID') ?: getmypid()
 		];
 		$this->writeMessage($type, $params);
 	}

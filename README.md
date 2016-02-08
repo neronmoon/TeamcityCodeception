@@ -19,3 +19,6 @@ extensions:
     ...
 ```
 to your codeception.yml file
+
+# Known issues
+If you are using custom runner script, php may not detect env variables. So you just need to add *CI* env var to you server (```export CI=CI```) or to your runner script
