@@ -41,7 +41,7 @@ class TeamCity extends Extension
 	protected function isCI()
 	{
 		// this is the only way to detect teamcity from php
-		$message = "\n##teamcity[setParameter name='system.IS_THAT_U_TEAMCITY' value='yup!']";
+		$message = "\n##teamcity[setParameter name='env.IS_THAT_U_TEAMCITY' value='yup!']";
 		echo $message;
 		if (getenv('IS_THAT_U_TEAMCITY') !== 'yup!') { // removing prev line in term
 			echo "\r" . str_repeat(' ', strlen($message)) . "\r";
