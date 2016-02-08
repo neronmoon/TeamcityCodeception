@@ -35,7 +35,19 @@ class TeamCity extends Extension
 
 	public function _initialize()
 	{
-		$this->options['silent'] = getenv('TEAMCITY_VERSION') === false;
+		$this->options['silent'] = !$this->isCI();
+	}
+
+	protected function isCI()
+	{
+		// this is the only way to detect teamcity from php
+		$message = "\n##teamcity[setParameter name='system.IS_THAT_U_TEAMCITY' value='yup!']";
+		echo $message;
+		if (getenv('IS_THAT_U_TEAMCITY') !== 'yup!') { // removing prev line in term
+			echo "\r" . str_repeat(' ', strlen($message)) . "\n";
+			return false;
+		}
+		return true;
 	}
 
 	public function onSuiteStart(SuiteEvent $e)
