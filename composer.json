@@ -1,0 +1,22 @@
+{
+  "name": "neronmoon/teamcity-codeception",
+  "description": "Integrating codeception builds with codeception",
+  "keywords": ["dev", "teamcity", "codeception", "testing"],
+  "homepage": "https://github.com/neronmoon/teamcitycodeception",
+  "type": "package",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vitaliy Krasnoperov",
+      "email": "alistar.neron@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4"
+  },
+  "autoload": {
+    "psr-0": {
+      "Codeception/Extension/": "src/"
+    }
+  }
+}
