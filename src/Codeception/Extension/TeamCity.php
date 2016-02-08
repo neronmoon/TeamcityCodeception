@@ -35,12 +35,7 @@ class TeamCity extends Extension
 
 	public function _initialize()
 	{
-		$this->options['silent'] = !$this->isCI();
-	}
-
-	protected function isCI()
-	{
-		return getenv('BUILD_NUMBER') || getenv('TEAMCITY_VERSION'); // TODO try CI and CONTINIOUS_INTEGRATION also
+		$this->options['silent'] = getenv('TEAMCITY_VERSION') === false;
 	}
 
 	public function onSuiteStart(SuiteEvent $e)
