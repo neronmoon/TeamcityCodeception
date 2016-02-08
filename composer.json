@@ -2,10 +2,10 @@
   "name": "neronmoon/teamcity-codeception",
   "description": "Integrating codeception builds with codeception",
   "keywords": [
-    "dev",
     "teamcity",
     "codeception",
-    "testing"
+    "testing",
+    "test-reporting"
   ],
   "homepage": "https://github.com/neronmoon/teamcitycodeception",
   "type": "package",
@@ -24,7 +24,7 @@
   },
   "autoload": {
     "psr-0": {
-      "Codeception": "src"
+      "Codeception//": "src/"
     }
   }
 }
