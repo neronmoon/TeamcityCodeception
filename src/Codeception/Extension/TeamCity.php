@@ -44,7 +44,7 @@ class TeamCity extends Extension
 		$message = "\n##teamcity[setParameter name='system.IS_THAT_U_TEAMCITY' value='yup!']";
 		echo $message;
 		if (getenv('IS_THAT_U_TEAMCITY') !== 'yup!') { // removing prev line in term
-			echo "\r" . str_repeat(' ', strlen($message)) . "\n";
+			echo "\r" . str_repeat(' ', strlen($message)) . "\r";
 			return false;
 		}
 		return true;
