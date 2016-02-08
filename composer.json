@@ -15,8 +15,8 @@
     "php": ">=5.4"
   },
   "autoload": {
-    "psr-0": {
-      "Codeception/Extension/": "src/"
+    "psr-4": {
+      "Codeception\\Extension\\": "src/"
     }
   }
 }

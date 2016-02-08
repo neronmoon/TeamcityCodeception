@@ -15,7 +15,7 @@ and add
 extensions:
   enabled:
     ...
-    - Codeception\Extensions\TeamCity
+    - Codeception\Extension\TeamCity
     ...
 ```
 to your codeception.yml file
