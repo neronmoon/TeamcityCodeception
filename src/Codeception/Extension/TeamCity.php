@@ -94,7 +94,7 @@ class TeamCity extends Extension
 		$params += [
 			'name' => $this->getTestName($e),
 			'timestamp' => $this->getTimestamp(),
-			'flowId' => getenv('BUILD_PID') ?: getmypid()
+			'flowId' => getenv('TEAMCITY_PROCESS_FLOW_ID')
 		];
 		$this->writeMessage($type, $params);
 	}
