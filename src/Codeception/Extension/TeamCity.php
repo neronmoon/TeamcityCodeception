@@ -10,8 +10,9 @@ use Codeception\Event\TestEvent;
 use Codeception\Events;
 use Codeception\Extension;
 use Codeception\TestCase;
+use Codeception\Platform\Extension as BaseExtension;
 
-class TeamCity extends Extension
+class TeamCity extends BaseExtension
 {
 	const MESSAGE_SUITE_STARTED = 'testSuiteStarted';
 	const MESSAGE_SUITE_FINISHED = 'testSuiteFinished';
