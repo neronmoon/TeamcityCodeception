@@ -46,7 +46,7 @@ class TeamCity extends Extension
 				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	public function onSuiteStart(SuiteEvent $e)
