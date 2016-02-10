@@ -130,7 +130,7 @@ class TeamCity extends BaseExtension
 	protected function getTestName(Event $e)
 	{
 		if ($e instanceof TestEvent || $e instanceof FailEvent) {
-			return str_replace('/', '.', TestCase::getTestSignature($e->getTest()));
+			return $e->getTest()->getName(false);
 		} elseif ($e instanceof SuiteEvent) {
 			return $e->getSuite()->getName();
 		} else {
