@@ -130,7 +130,9 @@ class TeamCity extends BaseExtension
 	protected function getTestName(Event $e)
 	{
 		if ($e instanceof TestEvent || $e instanceof FailEvent) {
-			return $e->getTest()->getSignature();
+			$test = $e->getTest();
+			return method_exists($test, 'getSignature') ? $test->getSignature()
+				: get_class($test) . ":{$test->getName(false)}";
 		} elseif ($e instanceof SuiteEvent) {
 			return $e->getSuite()->getName();
 		} else {
